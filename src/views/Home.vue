@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <div>home</div>
+    <div>{{ message }}</div>
   </div>
 </template>
 
@@ -14,6 +14,16 @@ export default {
   components: {
     HelloWorld,
   },
+  data() {
+    return {message: 'hello'};
+    },
+  methods: {
+    increment() {
+      this.$store.commit('increment');
+      // console.log(this.$store.state.count);
+
+    },
+    },
 };
 
 </script>
