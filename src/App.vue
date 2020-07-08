@@ -6,16 +6,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
+<script>
 import HelloWorld from './components/HelloWorld.vue';
 
-@Component({
+export default {
+  name: 'app',
   components: {
     HelloWorld,
   },
-})
-export default class App extends Vue {}
+};
 </script>
 
 <style>
@@ -28,4 +27,3 @@ export default class App extends Vue {}
   margin-top: 60px;
 }
 </style>
-
