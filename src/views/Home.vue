@@ -12,14 +12,19 @@
         <el-button v-on:click="delTodos(item)">删除</el-button>
       </li>
     </ul>
-    <el-input v-model="input" placeholder="请输入内容"></el-input>
-    <div v-if="todos.length<6"><el-button v-on:click="addTodos">添加</el-button></div>
+    
+    <div v-if="todos.length<5">
+      <el-input v-model="input" placeholder="请输入内容"></el-input>
+      <el-button v-on:click="addTodos">添加</el-button>
+    </div>
+    <div><el-button v-on:click="api">接口调用</el-button></div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HelloWorld from '@/components/HelloWorld.vue';
+import Vue from 'vue';
 import home from './home.less';
 export default {
   name: 'Home',
@@ -49,6 +54,11 @@ export default {
     delTodos(params) {
      const newTds =   this.todos.filter((item) =>  item !== params  );
      this.todos = newTds;
+    },
+    api(params) {
+     Vue.axios.get('https://srv.buysellads.com/ads/CKYD62QM.json?segment=placement:vuejsorg').then((response) => {
+        // console.log(response.data);
+      });
     },
   },
 };
